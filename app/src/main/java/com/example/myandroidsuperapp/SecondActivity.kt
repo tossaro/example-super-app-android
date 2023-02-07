@@ -13,20 +13,17 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.tooling.preview.Preview
-import androidx.core.content.ContextCompat.startActivity
 import com.example.myandroidsuperapp.ui.theme.MyAndroidSuperAppTheme
 
-class MainActivity : ComponentActivity() {
+class SecondActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             MyAndroidSuperAppTheme {
-                // A surface container using the 'background' color from the theme
                 Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.background) {
                     Column{
-                        Greeting("Android")
-                        SecondActivityButton()
+                        Text(text = "Second Activity")
+                        MainActivityButton()
                     }
                 }
             }
@@ -35,24 +32,11 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Greeting(name: String) {
-    Text(text = "Welcome to the $name world")
-}
-
-@Composable
-fun SecondActivityButton(){
+fun MainActivityButton(){
     val context = LocalContext.current
     Button(onClick = {
-        context.startActivity(Intent(context, SecondActivity::class.java))
+        context.startActivity(Intent(context, MainActivity::class.java))
     }) {
-        Text(text = "Second Activity")
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    MyAndroidSuperAppTheme {
-        Greeting("Android")
+        Text(text = "Main Activity")
     }
 }
