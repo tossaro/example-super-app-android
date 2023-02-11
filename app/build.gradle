@@ -60,6 +60,15 @@ dependencies {
     implementation "androidx.compose.ui:ui-tooling-preview:$compose_ui_version"
     implementation 'androidx.compose.material:material:1.1.1'
 
+    implementation("com.facebook.react:react-android:0.71.2")
+    implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.0.0")
+    debugImplementation("com.facebook.flipper:flipper:0.125.0")
+    debugImplementation("com.facebook.flipper:flipper-network-plugin:0.125.0") {
+        exclude group:'com.squareup.okhttp3', module:'okhttp'
+    }
+    debugImplementation "com.facebook.flipper:flipper-fresco-plugin:0.125.0"
+    implementation "com.facebook.react:hermes-android:0.71.2"
+
     implementation files('libs/app-debug.aar')
 
     testImplementation 'junit:junit:4.13.2'

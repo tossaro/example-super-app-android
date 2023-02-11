@@ -14,8 +14,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.core.content.ContextCompat.startActivity
 import com.example.myandroidsuperapp.ui.theme.MyAndroidSuperAppTheme
+import com.mysuperapp.MainActivity
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,6 +27,7 @@ class MainActivity : ComponentActivity() {
                     Column{
                         Greeting("Android")
                         SecondActivityButton()
+                        ReactAppButton()
                     }
                 }
             }
@@ -48,6 +49,18 @@ fun SecondActivityButton(){
         Text(text = "Second Activity")
     }
 }
+
+
+@Composable
+fun ReactAppButton(){
+    val context = LocalContext.current
+    Button(onClick = {
+        context.startActivity(Intent(context, MainActivity::class.java))
+    }) {
+        Text(text = "React Native App")
+    }
+}
+
 
 @Preview(showBackground = true)
 @Composable
